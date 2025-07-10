@@ -4,6 +4,7 @@ import javax.swing.JPanel;
 
 import de.uni_hamburg.informatik.swt.se2.kino.model.entitaeten.Kinosaal;
 import de.uni_hamburg.informatik.swt.se2.kino.model.entitaeten.Vorstellung;
+import de.uni_hamburg.informatik.swt.se2.kino.model.wertobjekte.Geldbetrag;
 import de.uni_hamburg.informatik.swt.se2.kino.model.wertobjekte.Platz;
 
 import java.util.List;
@@ -195,6 +196,9 @@ public class PlatzVerkaufsController
     private void verkaufePlaetze(Vorstellung vorstellung)
     {
         Set<Platz> plaetze = _view.getPlatzplan().getAusgewaehltePlaetze();
+        
+        BezahlController bezahlcontroller = new BezahlController(Geldbetrag.get(1000));
+        
         vorstellung.verkaufePlaetze(plaetze);
         aktualisierePlatzplan();
     }

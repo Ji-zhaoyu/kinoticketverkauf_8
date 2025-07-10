@@ -27,7 +27,7 @@ public final class Geldbetrag
      */
     public static Geldbetrag get(String s)
     {
-        if (s == null || !s.matches("\\d(,\\d{1,2})?"))
+        if (s == null || !s.matches("\\d+(,\\d{1,2})?"))
         {
             throw new IllegalArgumentException(s);
         }
