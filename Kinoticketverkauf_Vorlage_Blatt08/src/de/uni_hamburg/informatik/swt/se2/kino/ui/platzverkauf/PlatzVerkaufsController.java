@@ -201,12 +201,17 @@ public class PlatzVerkaufsController
      */
     private void verkaufePlaetze(Vorstellung vorstellung)
     {
-        Set<Platz> plaetze = _view.getPlatzplan().getAusgewaehltePlaetze();
-        
-        BezahlController bezahlcontroller = new BezahlController(Geldbetrag.get(1000));
-        
-        vorstellung.verkaufePlaetze(plaetze);
-        aktualisierePlatzplan();
+        Set<Platz> plaetze = _view.getPlatzplan()
+            .getAusgewaehltePlaetze();
+
+        BezahlController bezahlcontroller = new BezahlController(
+                _vorstellung.getPreisFuerPlaetze(plaetze));
+
+        if (bezahlcontroller.istBezahlungErfolgreich())
+        {
+            vorstellung.verkaufePlaetze(plaetze);
+            aktualisierePlatzplan();
+        }
     }
 
     /**
