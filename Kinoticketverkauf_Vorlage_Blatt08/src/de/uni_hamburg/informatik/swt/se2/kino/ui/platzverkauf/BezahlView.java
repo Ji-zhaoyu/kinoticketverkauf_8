@@ -11,8 +11,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class BezahlView {
-	private JDialog _Dialog;
+public class BezahlView
+{
+    // Die Widgets, aus denen das UI sich zusammensetzt
+    private JDialog _Dialog;
     private JLabel _infoText;
     private JLabel _gesamtBetrag;
     private JLabel _bezahltBetrag;
@@ -23,12 +25,16 @@ public class BezahlView {
     private JButton _bezahlButton;
     private JButton _abbrechenButton;
     private JButton _okButton;
-    
+
+    /*
+     * Initialisert die Oberfläche
+     */
+
     public BezahlView()
     {
-    	_Dialog = erstelleDialog();
+        _Dialog = erstelleDialog();
     }
-    
+
     private JDialog erstelleDialog()
     {
         JDialog Dialog = new JDialog();
@@ -38,119 +44,157 @@ public class BezahlView {
 
         JPanel hauptPanel = new JPanel();
         hauptPanel.setLayout(new BorderLayout());
-       
+
         _infoText = new JLabel("Bezahlvorgang", JLabel.CENTER);
-        _infoText.setFont(new Font("Arial", Font.BOLD,50));
+        _infoText.setFont(new Font("Arial", Font.BOLD, 50));
         hauptPanel.add(_infoText, BorderLayout.NORTH);
-        
+
         JPanel infoPanel = new JPanel();
-        infoPanel.setLayout(new GridLayout(6,1));
+        infoPanel.setLayout(new GridLayout(6, 1));
         _gesamtBetrag = new JLabel();
-        _gesamtBetrag.setFont(new Font("Arial", Font.BOLD,25));
+        _gesamtBetrag.setFont(new Font("Arial", Font.BOLD, 25));
         _bezahltBetrag = new JLabel();
-        _bezahltBetrag.setFont(new Font("Arial", Font.BOLD,25));
+        _bezahltBetrag.setFont(new Font("Arial", Font.BOLD, 25));
         _restBetrag = new JLabel();
-        _restBetrag.setFont(new Font("Arial", Font.BOLD,25));
-        
+        _restBetrag.setFont(new Font("Arial", Font.BOLD, 25));
+
         _bezahlButton = new JButton("Bezahlen");
-        _bezahlButton.setFont(new Font("Arial", Font.BOLD,25));
-        
+        _bezahlButton.setFont(new Font("Arial", Font.BOLD, 25));
+
         JPanel eingabePanel = new JPanel();
-        eingabePanel.setLayout(new GridLayout(1,2));
+        eingabePanel.setLayout(new GridLayout(1, 2));
         _eingabeText = new JLabel("Gebe den zu bezahlenden Betrag ein");
-        _eingabeText.setFont(new Font("Arial", Font.BOLD,25));
+        _eingabeText.setFont(new Font("Arial", Font.BOLD, 25));
         _eingabeFeld = new JTextField();
-        _eingabeFeld.setFont(new Font("Arial", Font.BOLD,25));
+        _eingabeFeld.setFont(new Font("Arial", Font.BOLD, 25));
         _rückmeldungText = new JLabel();
-        _rückmeldungText.setFont(new Font("Arial", Font.BOLD,25));
+        _rückmeldungText.setFont(new Font("Arial", Font.BOLD, 25));
 
-
-        
         eingabePanel.add(_eingabeText);
         eingabePanel.add(_eingabeFeld);
-        
+
         infoPanel.add(_gesamtBetrag);
         infoPanel.add(_bezahltBetrag);
         infoPanel.add(_restBetrag);
         infoPanel.add(eingabePanel);
         infoPanel.add(_bezahlButton);
-        infoPanel.add(_rückmeldungText);        
+        infoPanel.add(_rückmeldungText);
         hauptPanel.add(infoPanel, BorderLayout.CENTER);
 
-        
         JPanel buttonPanel = new JPanel();
-        buttonPanel.setLayout(new GridLayout(1,2));
+        buttonPanel.setLayout(new GridLayout(1, 2));
         _abbrechenButton = new JButton("Abbrechen");
-        _abbrechenButton.setFont(new Font("Arial", Font.BOLD,25));
+        _abbrechenButton.setFont(new Font("Arial", Font.BOLD, 25));
         _okButton = new JButton("Ok");
-        _okButton.setFont(new Font("Arial", Font.BOLD,25));
+        _okButton.setFont(new Font("Arial", Font.BOLD, 25));
 
         buttonPanel.add(_okButton);
         buttonPanel.add(_abbrechenButton);
         buttonPanel.setPreferredSize(new Dimension(0, 150));
-        
-        
+
         hauptPanel.add(buttonPanel, BorderLayout.SOUTH);
-        
-        
+
         Dialog.add(hauptPanel);
         return Dialog;
     }
-    
+
+    /*
+     * gibt den UI Dialog zurück
+     */
+
     public JDialog getUIDialog()
     {
         return _Dialog;
     }
-    
+
+    /*
+     * gibt den Info Text zurück
+     */
+
     public JLabel getinfoText()
     {
         return _infoText;
     }
-    
+
+    /*
+     * gibt den gesamten Betrag 
+     */
+
     public JLabel getgesamtBetrag()
     {
         return _gesamtBetrag;
     }
-    
+
+    /*
+     * gibt den bezahlten Betrag
+     */
+
     public JLabel getbezahltBetrag()
     {
         return _bezahltBetrag;
     }
-    
+
+    /*
+     * gibt den rest Betrag zurück
+     */
+
     public JLabel getrestBetrag()
     {
         return _restBetrag;
     }
-    
+
+    /*
+     * gibt den Eingabetext
+     */
+
     public JLabel geteingabeText()
     {
         return _eingabeText;
     }
-    
+
+    /*
+     * gibt den Rückmeldungstext
+     */
+
     public JLabel getrückmeldungText()
     {
-    	return _rückmeldungText;
+        return _rückmeldungText;
     }
-    
+
+    /*
+     * gibt das Eingabefeld zurück
+     */
+
     public JTextField geteingabeFeld()
     {
         return _eingabeFeld;
     }
-    
+
+    /*
+     * gibt den Bezahl Knopf 
+     */
+
     public JButton getbezahlButton()
     {
         return _bezahlButton;
     }
-    
+
+    /*
+     * gibt den Abbruch Knopf
+     */
+
     public JButton getabbrechenButton()
     {
         return _abbrechenButton;
     }
-    
+
+    /*
+     * gibt den "Ok" Knopf
+     */
+
     public JButton getokButton()
     {
         return _okButton;
     }
-    
-    
+
 }

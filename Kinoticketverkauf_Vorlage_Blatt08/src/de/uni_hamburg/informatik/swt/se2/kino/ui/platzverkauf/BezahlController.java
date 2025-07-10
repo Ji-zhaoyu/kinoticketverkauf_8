@@ -4,12 +4,23 @@ import de.uni_hamburg.informatik.swt.se2.kino.model.wertobjekte.Geldbetrag;
 
 public class BezahlController
 {
-
+    // Die UI vom Bezahlfeld
     private BezahlView _view;
+    // das Geld was man zahlt
     private Geldbetrag _geldbetrag;
+    // das bereits gezahlte geld
     private Geldbetrag _gezahlt;
+    // das Restgeld
     private Geldbetrag _rest;
+    // ob Bezahlung erfolgreich war
     private boolean _erfolgreich;
+
+    /*
+     * Initialisiert das Bezahlmodul
+     * 
+     * @param geldbetrag der Geldbetrag
+     * 
+     */
 
     public BezahlController(Geldbetrag geldbetrag)
     {
@@ -26,6 +37,10 @@ public class BezahlController
             .setVisible(true);
     }
 
+    /*
+     * aktualisiert das Bezahlfeld
+     */
+
     private void aktualisiereBezahlView()
     {
         _view.getgesamtBetrag()
@@ -37,6 +52,10 @@ public class BezahlController
         _view.getokButton()
             .setEnabled(_erfolgreich);
     }
+
+    /*
+     * Registriert die UI Aktionen
+     */
 
     private void registriereUIAktionen()
     {
@@ -58,6 +77,11 @@ public class BezahlController
             .addActionListener(e -> bezahle());
 
     }
+
+    /*
+     * UI Feld um zu Bezahlen
+     * 
+     */
 
     private void bezahle()
     {
@@ -96,6 +120,10 @@ public class BezahlController
         }
 
     }
+
+    /*
+     * überprüft ob die Bezahlung erfolgreich ist
+     */
 
     public boolean istBezahlungErfolgreich()
     {
