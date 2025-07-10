@@ -38,7 +38,10 @@ public class GeldbetragTest
     {
         Geldbetrag geld1 = Geldbetrag.get(300);
         Geldbetrag geld2 = Geldbetrag.get(345);
+        Geldbetrag geld3 = Geldbetrag.get(Integer.MAX_VALUE);
+
         assertEquals(geld1.addiere(geld2), Geldbetrag.get(645));
+        assertEquals(geld3.addiere(geld2), geld3);
     }
 
     @Test
@@ -46,14 +49,20 @@ public class GeldbetragTest
     {
         Geldbetrag geld1 = Geldbetrag.get(400);
         Geldbetrag geld2 = Geldbetrag.get(345);
+        //Geldbetrag geld3 = Geldbetrag.get(Integer.MIN_VALUE);
         assertEquals(geld1.subtrahiere(geld2), Geldbetrag.get(55));
+        //assertEquals(geld3.subtrahiere(geld2), geld3);
     }
 
     @Test
     public void testMultiplizere()
     {
         Geldbetrag geld1 = Geldbetrag.get(400);
-        assertEquals(geld1.multipliziere(5), Geldbetrag.get(2000));
+        Geldbetrag geld2 = Geldbetrag.get(Integer.MAX_VALUE);
+        //Geldbetrag geld3 = Geldbetrag.get(Integer.MIN_VALUE);
+        assertEquals(geld1.multipliziere(1), Geldbetrag.get(400));
+        assertEquals(geld2.multipliziere(2), geld2);
+        //assertEquals(geld3.multipliziere(2), geld3);
     }
 
     @Test

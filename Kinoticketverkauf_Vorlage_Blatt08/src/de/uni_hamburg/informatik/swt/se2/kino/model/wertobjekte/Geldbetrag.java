@@ -24,9 +24,11 @@ public final class Geldbetrag
      * Erstellt ein Geldbetrag aus einem String, negative und unglültige Zahlen werden abgelehnt
      * @param s die Eingabe als Sting
      * @return einen neuen Geldbetrag
+     * @required s != null
      */
     public static Geldbetrag get(String s)
     {
+        assert s != null : "Vorbedingung verletzt: s != null";
         if (s == null || !s.matches("\\d+(,\\d{1,2})?"))
         {
             throw new IllegalArgumentException(s);
@@ -119,9 +121,11 @@ public final class Geldbetrag
      * Addiert diesen Geldbetrag mit einen anderen, falls möglich 
      * @param andererGeldbetrag der andere Geldbetrag
      * @return neuer Geldbetrag
+     * @require andererGeldbetrag != null
      */
     public Geldbetrag addiere(Geldbetrag andererGeldbetrag)
     {
+        assert andererGeldbetrag != null : "Vorbedingung verletzt: andererGeldbetrag != null";
         if (ueberpruefeAdd(andererGeldbetrag))
         {
             return get(Math.addExact(_euroCent, andererGeldbetrag._euroCent));
@@ -151,9 +155,11 @@ public final class Geldbetrag
      * Subtrahiert diesen Geldbetrag mit einen anderen, falls möglich 
      * @param andererGeldbetrag der andere Geldbetrag
      * @return neuer Geldbetrag
+     * @require andererGeldbetrag != null
      */
     public Geldbetrag subtrahiere(Geldbetrag andererGeldbetrag)
     {
+        assert andererGeldbetrag != null : "Vorbedingung verletzt: andererGeldbetrag != null";
         if (ueberpruefeSub(andererGeldbetrag))
         {
             return get(
@@ -199,9 +205,11 @@ public final class Geldbetrag
      * Prüft, ob dieser Betrag größer gleich der ander ist
      * @param andererGeldbetrag der andere Geldbetrag
      * @return ob dieser Betrag größer gleich der ander ist
+     * @require andererGeldbetrag != null
      */
     public boolean groesserGleich(Geldbetrag andererGeldbetrag)
     {
+        assert andererGeldbetrag != null : "Vorbedingung verletzt: andererGeldbetrag != null";
         return _euroCent >= andererGeldbetrag._euroCent;
     }
 
@@ -209,9 +217,11 @@ public final class Geldbetrag
      * Differenz zwischend dem Geldbeträgen
      * @param andererGeldbetrag der andere Geldbetrag
      * @return Differenz
+     * @require andererGeldbetrag != null
      */
     public int compareTo(Geldbetrag andererGeldbetrag)
     {
+        assert andererGeldbetrag != null : "Vorbedingung verletzt: andererGeldbetrag != null";
         return _euroCent - andererGeldbetrag._euroCent;
     }
 
