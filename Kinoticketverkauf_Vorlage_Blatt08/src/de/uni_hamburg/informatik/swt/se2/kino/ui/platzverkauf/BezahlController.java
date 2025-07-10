@@ -16,11 +16,12 @@ public class BezahlController {
 		_geldbetrag = geldbetrag;
 		_gezahlt = Geldbetrag.get(0);
 		_rest = geldbetrag.subtrahiere(_gezahlt);
-		_view = new BezahlView();
 		_erfolgreich = false;
+		_view = new BezahlView();
 		aktualisiereBezahlView();
         registriereUIAktionen();
-       
+		_view.getUIDialog().setModal(true);
+		_view.getUIDialog().setVisible(true);       
     }
 	
 	private void aktualisiereBezahlView()
@@ -72,5 +73,6 @@ public class BezahlController {
 	public boolean meldeSchließung() {
 		return _erfolgreich;
 	}
+	
 
 }

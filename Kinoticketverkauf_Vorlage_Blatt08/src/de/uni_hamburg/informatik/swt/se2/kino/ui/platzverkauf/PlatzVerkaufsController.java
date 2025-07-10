@@ -203,7 +203,6 @@ public class PlatzVerkaufsController
     {
         Set<Platz> plaetze = _view.getPlatzplan().getAusgewaehltePlaetze();
         
-        //TODO Richtige Geldbeträge reingeben Buttons gehen, Modal
         BezahlController bezahlcontroller = new BezahlController(Geldbetrag.get(1000));
         
         vorstellung.verkaufePlaetze(plaetze);

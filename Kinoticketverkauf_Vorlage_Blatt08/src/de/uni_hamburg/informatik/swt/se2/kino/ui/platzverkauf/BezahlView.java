@@ -94,8 +94,6 @@ public class BezahlView {
         
         
         Dialog.add(hauptPanel);
-        Dialog.setVisible(true);
-        Dialog.setModal(true);
         return Dialog;
     }
     
